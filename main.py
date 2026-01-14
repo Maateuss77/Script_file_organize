@@ -17,6 +17,8 @@ def save_categories(categories: dict):
     with CATEGORIES_FILE.open("w", encoding="utf-8") as file:
         json.dump(categories, file, indent=4, ensure_ascii=False)
 
+def create_json():
+    path("categories.json").touch()
 
 def create_new_category():
     categories = load_categories()
