@@ -18,7 +18,12 @@ def save_categories(categories: dict):
         json.dump(categories, file, indent=4, ensure_ascii=False)
 
 def create_json():
-    path("categories.json").touch()
+    if not CATEGORIES_FILE.exists():
+        path("categories.json").touch()
+        print("arquivo json criado")
+        return  
+    print("arquivo ja existe")
+    return
 
 def create_new_category():
     categories = load_categories()
